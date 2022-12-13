@@ -1,0 +1,362 @@
+!SESSION 2018-04-20 09:18:17.501 -----------------------------------------------
+eclipse.buildId=4.7.1.M20171009-0410
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.ui 4 4 2018-04-20 09:20:24.861
+!MESSAGE Referenced part does not exist yet: org.eclipse.ui.views.TaskList.
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-04-20 09:20:32.534
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\10funkw'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:20:46.355
+!MESSAGE received no response from STUN server stunserver.org/67.227.226.240:3478 at local address /10.170.41.138:0 (StunServiceImpl.java:420)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:20:57.401
+!MESSAGE  new connection state == ERROR (XMPPConnectionService.java:400)
+!STACK 0
+gmail.com:5222 Exception: XMPPError connecting to gmail.com:5222.; : remote-server-error(502)
+  -- caused by: XMPPError connecting to gmail.com:5222.: remote-server-error(502) XMPPError connecting to gmail.com:5222.
+  -- caused by: java.net.ConnectException: Connection timed out: connect
+	at org.jivesoftware.smack.XMPPConnection.connectUsingConfiguration(XMPPConnection.java:592)
+	at org.jivesoftware.smack.XMPPConnection.connect(XMPPConnection.java:1010)
+	at de.fu_berlin.inf.dpp.net.xmpp.XMPPConnectionService.connect(XMPPConnectionService.java:268)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connectXMPPInternal(ConnectionHandler.java:332)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connect(ConnectionHandler.java:190)
+	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+Nested Exception: 
+XMPPError connecting to gmail.com:5222.: remote-server-error(502) XMPPError connecting to gmail.com:5222.
+  -- caused by: java.net.ConnectException: Connection timed out: connect
+	at org.jivesoftware.smack.XMPPConnection.connectUsingConfiguration(XMPPConnection.java:565)
+	at org.jivesoftware.smack.XMPPConnection.connect(XMPPConnection.java:1010)
+	at de.fu_berlin.inf.dpp.net.xmpp.XMPPConnectionService.connect(XMPPConnectionService.java:268)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connectXMPPInternal(ConnectionHandler.java:332)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connect(ConnectionHandler.java:190)
+	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+Nested Exception: 
+java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.jivesoftware.smack.proxy.DirectSocketFactory.createSocket(DirectSocketFactory.java:45)
+	at org.jivesoftware.smack.XMPPConnection.connectUsingConfiguration(XMPPConnection.java:557)
+	at org.jivesoftware.smack.XMPPConnection.connect(XMPPConnection.java:1010)
+	at de.fu_berlin.inf.dpp.net.xmpp.XMPPConnectionService.connect(XMPPConnectionService.java:268)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connectXMPPInternal(ConnectionHandler.java:332)
+	at de.fu_berlin.inf.dpp.communication.connection.ConnectionHandler.connect(ConnectionHandler.java:190)
+	at de.fu_berlin.inf.dpp.StartupSaros$1.run(StartupSaros.java:113)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:22:15.973
+!MESSAGE an error occurred while performing a STUN discovery: ICMP Port Unreachable (StunServiceImpl.java:155)
+!STACK 0
+java.net.PortUnreachableException: ICMP Port Unreachable
+	at java.net.DualStackPlainDatagramSocketImpl.socketReceiveOrPeekData(Native Method)
+	at java.net.DualStackPlainDatagramSocketImpl.receive0(Unknown Source)
+	at java.net.AbstractPlainDatagramSocketImpl.receive(Unknown Source)
+	at java.net.DatagramSocket.receive(Unknown Source)
+	at de.fu_berlin.inf.dpp.net.stun.internal.StunServiceImpl$StunDiscovery.performStunDiscovery(StunServiceImpl.java:284)
+	at de.fu_berlin.inf.dpp.net.stun.internal.StunServiceImpl$StunDiscovery.run(StunServiceImpl.java:151)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:22:25.375
+!MESSAGE [SOCKS5Transport] Received response connection without a running connect (Socks5Transport.java:324)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:22:39.626
+!MESSAGE Service Discovery failed on recipient 0wujn3hst7h5y3dghnm6q0lj9t@public.talk.google.com/MessagingB1445C87900 server: xmpp.l.google.com (DiscoveryManager.java:451)
+!STACK 0
+No response from the server.: 
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:534)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:489)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.performServiceDiscovery(DiscoveryManager.java:448)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.queryFeatureSupport(DiscoveryManager.java:380)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.access$3(DiscoveryManager.java:347)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager$2.run(DiscoveryManager.java:326)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:23:09.721
+!MESSAGE Service Discovery failed on recipient 0wujn3hst7h5y3dghnm6q0lj9t@public.talk.google.com/MessagingB1445C87900 server: xmpp.l.google.com (DiscoveryManager.java:451)
+!STACK 0
+No response from the server.: 
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:534)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:489)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.performServiceDiscovery(DiscoveryManager.java:448)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.queryFeatureSupport(DiscoveryManager.java:380)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.access$3(DiscoveryManager.java:347)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager$2.run(DiscoveryManager.java:326)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:23:24.351
+!MESSAGE Couldn't join chat: SAROS_1720758143@conference.funk.cs.fcps.org (MultiUserChatService.java:114)
+!STACK 0
+No response from server.: 
+	at org.jivesoftware.smackx.muc.MultiUserChat.create(MultiUserChat.java:367)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.MultiUserChat.createAndJoinMUC(MultiUserChat.java:266)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.MultiUserChat.connect(MultiUserChat.java:177)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.MultiUserChatService.createChat(MultiUserChatService.java:111)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite.createChat(ChatRoomsComposite.java:670)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite.access$4(ChatRoomsComposite.java:665)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite$5$2.run(ChatRoomsComposite.java:255)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:53:03.624
+!MESSAGE failed to sent activities: [TextSelectionActivity(offset: 3694, length: 0, src: bluetangkid@gmail.com/Saros97D02A81, path: SPath [path=src/game/Game.java, project=gameEngine])] (ActivitySequencer.java:504)
+!STACK 0
+java.io.IOException: not connected to exec.nathan@gmail.com/SarosA9123AFB [connection identifier=saros-main-session]
+	at de.fu_berlin.inf.dpp.net.internal.DataTransferManager.sendData(DataTransferManager.java:206)
+	at de.fu_berlin.inf.dpp.net.internal.XMPPTransmitter.send(XMPPTransmitter.java:90)
+	at de.fu_berlin.inf.dpp.project.internal.ActivitySequencer.sendActivities(ActivitySequencer.java:501)
+	at de.fu_berlin.inf.dpp.project.internal.ActivitySequencer.access$3(ActivitySequencer.java:482)
+	at de.fu_berlin.inf.dpp.project.internal.ActivitySequencer$2.run(ActivitySequencer.java:152)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:53:03.654
+!MESSAGE failed to notify user exec.nathan@gmail.com/SarosA9123AFB about local session stop (SarosSession.java:655)
+!STACK 0
+java.io.IOException: not connected to exec.nathan@gmail.com/SarosA9123AFB [connection identifier=saros-main-session]
+	at de.fu_berlin.inf.dpp.net.internal.DataTransferManager.sendData(DataTransferManager.java:206)
+	at de.fu_berlin.inf.dpp.net.internal.XMPPTransmitter.send(XMPPTransmitter.java:90)
+	at de.fu_berlin.inf.dpp.project.internal.SarosSession.stop(SarosSession.java:651)
+	at de.fu_berlin.inf.dpp.project.SarosSessionManager.stopSarosSession(SarosSessionManager.java:340)
+	at de.fu_berlin.inf.dpp.project.internal.timeout.SessionTimeoutHandler$3.run(SessionTimeoutHandler.java:115)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:53:33.672
+!MESSAGE Service Discovery failed on recipient 0wujn3hst7h5y3dghnm6q0lj9t@public.talk.google.com/MessagingB1445C87900 server: xmpp.l.google.com (DiscoveryManager.java:451)
+!STACK 0
+No response from the server.: 
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:534)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:489)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.performServiceDiscovery(DiscoveryManager.java:448)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.queryFeatureSupport(DiscoveryManager.java:380)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.access$3(DiscoveryManager.java:347)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager$2.run(DiscoveryManager.java:326)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:53:51.380
+!MESSAGE discovery for service 'gmail.com' failed (XMPPUtils.java:345)
+!STACK 0
+feature-not-implemented(501)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverItems(ServiceDiscoveryManager.java:587)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverItems(ServiceDiscoveryManager.java:550)
+	at de.fu_berlin.inf.dpp.net.util.XMPPUtils.getMultiUserChatService(XMPPUtils.java:343)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager.getMUCService(MUCNegotiationManager.java:168)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager.getOwnPreferences(MUCNegotiationManager.java:125)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite.createChat(ChatRoomsComposite.java:667)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite.access$4(ChatRoomsComposite.java:665)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite$5$2.run(ChatRoomsComposite.java:255)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:53:51.386
+!MESSAGE MUC service is not available, aborting connection request (MultiUserChatService.java:103)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:54:01.438
+!MESSAGE OSN [remote side: exec.nathan@gmail.com/SarosA9123AFB] : could not obtain remote Saros version (OutgoingSessionNegotiation.java:262)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:54:01.447
+!MESSAGE cancelled process OSN [remote side: exec.nathan@gmail.com/SarosA9123AFB], error: Could not obtain the version of the Saros plugin from exec.nathan@gmail.com. Please try again. (CancelableProcess.java:398)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:54:01.488
+!MESSAGE Invitation was cancelled locally because of an error: Could not obtain the version of the Saros plugin from exec.nathan@gmail.com. Please try again.
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:54:20.817
+!MESSAGE discovery for service 'gmail.com' failed (XMPPUtils.java:345)
+!STACK 0
+feature-not-implemented(501)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverItems(ServiceDiscoveryManager.java:587)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverItems(ServiceDiscoveryManager.java:550)
+	at de.fu_berlin.inf.dpp.net.util.XMPPUtils.getMultiUserChatService(XMPPUtils.java:343)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager.getMUCService(MUCNegotiationManager.java:168)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager.getOwnPreferences(MUCNegotiationManager.java:125)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite.createChat(ChatRoomsComposite.java:667)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite.access$4(ChatRoomsComposite.java:665)
+	at de.fu_berlin.inf.dpp.ui.widgets.chat.ChatRoomsComposite$5$2.run(ChatRoomsComposite.java:255)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:54:20.822
+!MESSAGE MUC service is not available, aborting connection request (MultiUserChatService.java:103)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:54:21.342
+!MESSAGE Service Discovery failed on recipient 0wujn3hst7h5y3dghnm6q0lj9t@public.talk.google.com/MessagingB1445C87900 server: xmpp.l.google.com (DiscoveryManager.java:451)
+!STACK 0
+No response from the server.: 
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:534)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:489)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.performServiceDiscovery(DiscoveryManager.java:448)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.queryFeatureSupport(DiscoveryManager.java:380)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.access$3(DiscoveryManager.java:347)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager$2.run(DiscoveryManager.java:326)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 09:54:25.877
+!MESSAGE discovery for service 'gmail.com' failed (XMPPUtils.java:345)
+!STACK 0
+feature-not-implemented(501)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverItems(ServiceDiscoveryManager.java:587)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverItems(ServiceDiscoveryManager.java:550)
+	at de.fu_berlin.inf.dpp.net.util.XMPPUtils.getMultiUserChatService(XMPPUtils.java:343)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager.getMUCService(MUCNegotiationManager.java:168)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager.getOwnPreferences(MUCNegotiationManager.java:125)
+	at de.fu_berlin.inf.dpp.communication.chat.muc.negotiation.MUCNegotiationManager$1.considerClientPreferences(MUCNegotiationManager.java:72)
+	at de.fu_berlin.inf.dpp.negotiation.OutgoingSessionNegotiation.determineSessionParameters(OutgoingSessionNegotiation.java:397)
+	at de.fu_berlin.inf.dpp.negotiation.OutgoingSessionNegotiation.start(OutgoingSessionNegotiation.java:191)
+	at de.fu_berlin.inf.dpp.ui.eventhandler.NegotiationHandler$OutgoingInvitationJob.run(NegotiationHandler.java:86)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:54:26.672
+!MESSAGE [SOCKS5Transport] Received response connection without a running connect (Socks5Transport.java:324)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:54:51.348
+!MESSAGE Service Discovery failed on recipient 0wujn3hst7h5y3dghnm6q0lj9t@public.talk.google.com/MessagingB1445C87900 server: xmpp.l.google.com (DiscoveryManager.java:451)
+!STACK 0
+No response from the server.: 
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:534)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:489)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.performServiceDiscovery(DiscoveryManager.java:448)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.queryFeatureSupport(DiscoveryManager.java:380)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.access$3(DiscoveryManager.java:347)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager$2.run(DiscoveryManager.java:326)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2018-04-20 09:55:21.355
+!MESSAGE Service Discovery failed on recipient 0wujn3hst7h5y3dghnm6q0lj9t@public.talk.google.com/MessagingB1445C87900 server: xmpp.l.google.com (DiscoveryManager.java:451)
+!STACK 0
+No response from the server.: 
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:534)
+	at org.jivesoftware.smackx.ServiceDiscoveryManager.discoverInfo(ServiceDiscoveryManager.java:489)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.performServiceDiscovery(DiscoveryManager.java:448)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.queryFeatureSupport(DiscoveryManager.java:380)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager.access$3(DiscoveryManager.java:347)
+	at de.fu_berlin.inf.dpp.net.xmpp.discovery.DiscoveryManager$2.run(DiscoveryManager.java:326)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2018-04-20 10:08:54.597
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\charsets.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\access-bridge-32.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\cldrdata.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\dnsns.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\jaccess.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\jfxrt.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\localedata.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\nashorn.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\sunec.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\sunmscapi.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\ext\zipfs.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\jce.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\jfr.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\jsse.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\resources.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_161\lib\rt.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\joml-1.9.8-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\joml-1.9.8.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-assimp-natives-windows.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-assimp-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-assimp.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-glfw-natives-windows.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-glfw-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-glfw.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-natives-windows.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-openal-natives-windows.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-openal-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-openal.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-opengl-natives-windows.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-opengl-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-opengl.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-stb-natives-windows.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-stb-sources.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl-stb.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl.jar
+  [+] C:\Users\10funkw\Downloads\Yess\gameEngine\lwjgl3\lwjgl_util.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 10:12:54.870
+!MESSAGE XMPP connection error:  (XMPPConnectionService.java:101)
+!STACK 0
+java.io.EOFException: no more data available - expected end tag </stream:stream> to close start tag <stream:stream> from line 1, parser stopped on END_TAG seen ...uetangkid@gmail.com/Saros97D02A81" id="6038e-187" type="result"/> ... @1:29443
+	at org.xmlpull.mxp1.MXParser.fillBuf(MXParser.java:3035)
+	at org.xmlpull.mxp1.MXParser.more(MXParser.java:3046)
+	at org.xmlpull.mxp1.MXParser.nextImpl(MXParser.java:1384)
+	at org.xmlpull.mxp1.MXParser.next(MXParser.java:1093)
+	at org.jivesoftware.smack.PacketReader.parsePackets(PacketReader.java:312)
+	at org.jivesoftware.smack.PacketReader.access$000(PacketReader.java:48)
+	at org.jivesoftware.smack.PacketReader$1.run(PacketReader.java:76)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 10:12:54.876
+!MESSAGE  new connection state == ERROR (XMPPConnectionService.java:400)
+!STACK 0
+java.io.EOFException: no more data available - expected end tag </stream:stream> to close start tag <stream:stream> from line 1, parser stopped on END_TAG seen ...uetangkid@gmail.com/Saros97D02A81" id="6038e-187" type="result"/> ... @1:29443
+	at org.xmlpull.mxp1.MXParser.fillBuf(MXParser.java:3035)
+	at org.xmlpull.mxp1.MXParser.more(MXParser.java:3046)
+	at org.xmlpull.mxp1.MXParser.nextImpl(MXParser.java:1384)
+	at org.xmlpull.mxp1.MXParser.next(MXParser.java:1093)
+	at org.jivesoftware.smack.PacketReader.parsePackets(PacketReader.java:312)
+	at org.jivesoftware.smack.PacketReader.access$000(PacketReader.java:48)
+	at org.jivesoftware.smack.PacketReader$1.run(PacketReader.java:76)
+
+!ENTRY de.fu_berlin.inf.dpp 4 0 2018-04-20 10:13:00.998
+!MESSAGE failed to sent activities: [ChecksumActivity(path: SPath [path=src/world/Terrain.java, project=gameEngine], hash: -394280930, length: 6258, jupiterTimestamp: [23,0]), ChecksumActivity(path: SPath [path=src/networking/Client.java, project=gameEngine], hash: 700433503, length: 4296, jupiterTimestamp: [0,0])] (ActivitySequencer.java:504)
+!STACK 0
+java.io.IOException: not connected to a XMPP server
+	at de.fu_berlin.inf.dpp.net.internal.DataTransferManager.sendData(DataTransferManager.java:200)
+	at de.fu_berlin.inf.dpp.net.internal.XMPPTransmitter.send(XMPPTransmitter.java:90)
+	at de.fu_berlin.inf.dpp.project.internal.ActivitySequencer.sendActivities(ActivitySequencer.java:501)
+	at de.fu_berlin.inf.dpp.project.internal.ActivitySequencer.access$3(ActivitySequencer.java:482)
+	at de.fu_berlin.inf.dpp.project.internal.ActivitySequencer$2.run(ActivitySequencer.java:152)
+	at de.fu_berlin.inf.dpp.util.ThreadUtils$1.run(ThreadUtils.java:38)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.equinox.p2.repository 2 0 2018-04-20 10:14:51.907
+!MESSAGE Server returned lastModified <= 0 for https://raw.github.com/guari/eclipse-ui-theme/master/com.github.eclipseuitheme.themes.updatesite/content.jar

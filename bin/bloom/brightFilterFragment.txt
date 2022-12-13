@@ -1,0 +1,17 @@
+#version 150
+
+in vec2 textureCoords;
+
+out vec4 out_Colour;
+
+uniform sampler2D colourTexture;
+
+void main(void){
+	vec4 color = texture(colourTexture, textureCoords);
+	float brightness = color.r + color.g + color.b;
+	if(brightness > 1.3) {
+		out_Colour = color * brightness;
+	} else {
+		out_Colour = vec4(0);
+	}
+}

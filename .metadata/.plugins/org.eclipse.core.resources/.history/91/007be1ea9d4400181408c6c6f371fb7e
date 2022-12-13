@@ -1,0 +1,139 @@
+package networking;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintStream;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+
+import game.Game;
+
+public class ServerThread extends Thread {
+	//public ArrayList<ObjectOutputStream> dOuts;
+	public ObjectOutputStream dOut;
+	public static ArrayList<ClientData> players;
+	public ObjectInputStream dIn;
+	public Socket socket;
+	public int port;
+	public PrintStream ps;
+	public int clID;
+	
+	//Are you polish'd?
+	public ServerThread(int port, Socket sock, PrintStream ps) {
+		this.ps = ps;
+		this.port = port;
+		this.socket = sock;
+		
+		ps.println("ServerThread " + this + " constructor called with port " + port);
+		try {
+			ps.println("Server hosted on: " + InetAddress.getLocalHost());
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		ps.println("Server.getListenThreadCreated() = " + Server.getListenThreadCreated());
+		if(!Server.getListenThreadCreated()) {
+			ps.println("listenThreadCreated bool set to true, entering main");
+			Server.setListenThreadCreated(true);
+			players = new ArrayList<ClientData>();
+			main();
+		} else {
+			players.add(null);
+			clID = players.size()-1;
+		}
+	}
+	
+	public void run() {
+		ps.println("Run Called");
+		connect();
+		ps.println("Connected");
+		while(true) {
+			recieveData();
+			sendData();
+		}
+	}
+	
+	
+	public void connect() {
+		ps.println("Inside of connect called, attempting to establish input/output streams");
+		try {
+			dIn = new ObjectInputStream(socket.getInputStream());
+			dOut = new ObjectOutputStream(socket.getOutputStream());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void main() {
+		ServerSocket serversocket;
+        try {
+			serversocket = new ServerSocket(port);
+	        while (true) {
+	            Socket clientsocket = serversocket.accept();
+	            new ServerThread(port, clientsocket, ps).start();
+	            //close();
+	        }
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	public void recieveData() {
+		try {
+			//ps.println( ((ClientData) dIn.readObject()).position);
+			players.set(clID, (ClientData) dIn.readObject());
+			dIn.skip(dIn.available());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+//	public void recieveData() {
+//		
+////		try {
+////			socket.setSoTimeout(0);
+////		} catch (SocketException e) {
+////			e.printStackTrace();
+////		}
+//		
+//		try {
+//			ClientData curPlayer = (ClientData)dIn.readObject();
+//			if(curPlayer.playerID == 0) {
+//				curPlayer.playerID = players.size()+1;
+//			}
+//			players.set(curPlayer.playerID, curPlayer);
+//		} catch (Exception e) {}
+//	}
+	
+	public void close() {
+		ps.println("Server closed.");
+		try {
+			//dIn.reset();
+			dOut.reset();
+			
+			dIn.close();
+			dOut.close();
+			
+			socket.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.exit(0);
+	}
+	
+	public void sendData() { //sends coords
+		while(true) {
+            try {
+            	dOut.writeObject(players);
+            	dOut.reset();
+				dOut.flush();
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				//close();
+			}
+		}
+	}
+}

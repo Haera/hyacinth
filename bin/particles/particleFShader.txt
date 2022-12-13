@@ -1,0 +1,15 @@
+#version 140
+
+out vec4 out_colour;
+
+in vec2 textureCoords;
+in float alpha;
+
+uniform sampler2D particleTexture;
+
+void main(void){
+	vec4 thingo = texture(particleTexture, textureCoords);
+	thingo.a -= alpha;
+	out_colour = thingo;
+
+}

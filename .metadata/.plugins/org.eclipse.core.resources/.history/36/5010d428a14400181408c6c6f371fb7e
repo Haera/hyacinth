@@ -1,0 +1,191 @@
+package game;
+
+import static org.lwjgl.glfw.GLFW.glfwSwapBuffers;
+
+import java.awt.Color;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.List;
+import org.lwjgl.util.vector.Vector3f;
+
+import entities.Bot;
+import entities.Entity;
+import entities.Light;
+import entities.Player;
+import guis.GuiRenderer;
+import guis.GuiTexture;
+import models.RawModel;
+import models.TexturedModel;
+import networking.Client;
+import networking.ClientData;
+import particles.Particle;
+import particles.ParticleMaster;
+import particles.ParticleTexture;
+import renderEngine.DisplayManager;
+import renderEngine.Loader;
+import renderEngine.MasterRenderer;
+import renderEngine.OBJLoader;
+import textures.ModelTexture;
+import toolbox.Line;
+import toolbox.Maths;
+import water.WaterRenderer;
+import water.WaterShader;
+import water.WaterTile;
+import world.WorldManager;
+
+public class Game {
+	static double oldTime;
+	static Loader loader = new Loader();
+	public static ArrayList<GuiTexture> guis = new ArrayList<GuiTexture>();
+	public static GuiRenderer guiRenderer;
+	public static Player player;
+	static MasterRenderer renderer;
+	static List<Bot> bots = new ArrayList<Bot>();
+	static List<Entity> objects = new ArrayList<Entity>();
+	public static int luigiNetX;
+	public static WorldManager world;
+	static ModelTexture whiteTexture;
+	static ModelTexture awpGreen;
+	static List<WaterTile> waterTiles;
+	static WaterShader waterShader;
+	static Light sun;
+	public static TexturedModel texturedLuigi;
+	public static TexturedModel texturedHorse;
+	static boolean multiplayer;
+	public static ClientData clientData = new ClientData();
+	public static ArrayList<Particle> dust = new ArrayList<Particle>();
+	
+	static int serverPort;
+	static InetAddress serverIP;
+	
+	static Client c;
+	
+	static void init(String port, String IP) {
+		DisplayManager.createDisplay();
+		Line.init(loader);
+		multiplayer = false;
+		world = new WorldManager(loader);
+		RawModel luigi = OBJLoader.loadObjModel("luigicide", loader);
+		RawModel AWP = OBJLoader.loadObjModel("awp", loader);
+		whiteTexture = new ModelTexture(loader.loadTexture("white"));
+		awpGreen = new ModelTexture(Game.getLoader().loadTexture("awpGreen"));
+		awpGreen.setReflectivity(1.5f);
+		awpGreen.setShineDamper(256f);
+		texturedLuigi = new TexturedModel(luigi, new ModelTexture(loader.loadTexture("luigicide")));
+		TexturedModel texturedAWP = new TexturedModel(AWP, whiteTexture);
+		serverPort = Integer.parseInt(port);
+		try {
+			serverIP = InetAddress.getByName(IP);
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+
+		if(!serverIP.toString().equals(new String("/0.0.0.1"))) {
+			multiplayer = true;
+		} else {
+			multiplayer = false;
+		}
+		
+		if(multiplayer) {
+			c = new Client(serverIP, serverPort);
+		}
+		
+		renderer = new MasterRenderer();
+		
+		ParticleMaster.init(loader, renderer.getProjectionMatrix());
+		
+		guiRenderer = new GuiRenderer(loader);
+		
+		whiteTexture.setShineDamper(256f);
+		whiteTexture.setReflectivity(5f);
+		
+		sun = new Light(new Vector3f(4000, 1000, 4000), new Vector3f(1f, 1f, 1f));
+		
+		for(int i = 0; i < 10; i++) {
+			float x = (float)Math.random()*8000;
+			float z = (float)Math.random()*8000;
+			bots.add(new Bot(texturedLuigi, new Vector3f(x, (float)world.chunkAtPos(0, 0).getHeight((int)x, (int)z), z), 0, 0, 0, 5));
+		}
+		ParticleTexture part = new ParticleTexture(Game.getLoader().loadTexture("cyan"), 1);
+		for(int i = 0; i < 800; i++) {
+			float x = (float)Math.random()*8000;
+			float z = (float)Math.random()*8000;
+			dust.add(new Particle(part, new Vector3f(x, 1000, z), new Vector3f((float)Math.random(), (float)Math.random()*5f, (float)Math.random()), 0.1f, Integer.MAX_VALUE, 0, 20));
+		}
+		
+		if(multiplayer) {
+			c.connect();
+		}
+
+		player = new Player();
+		
+	}
+	static void update() {
+		player.update(world.chunkAtPos(player.getPosition().x, player.getPosition().z));
+		world.update();
+		ParticleMaster.update();
+		if(multiplayer) {
+			c.main();
+		}
+		
+		
+		
+		for(Bot e : bots) {
+			e.update();
+			renderer.processEntity(e);
+		}
+		for(Entity e : objects) {
+			renderer.processEntity(e);
+		}
+		for(Particle p : dust) {
+			if(p.getPosition().getY() < -100) {
+				p.getPosition().y = 1000;
+				p.getVelocity().y = (float) (Math.random()*5f);
+			}
+			if(p.getPosition().x )) {
+				
+			}
+		}
+	}
+	static void render() {
+		world.render();
+		
+		renderer.render(sun, player);
+		
+		ParticleMaster.render(player);
+		
+		guiRenderer.render(guis);
+		player.drawGui();
+		
+		glfwSwapBuffers(DisplayManager.getWindow());
+		DisplayManager.updateDisplay();
+	}
+	static void close() {
+		waterShader.cleanUP();
+		ParticleMaster.cleanUp();
+		guiRenderer.cleanUp();
+		renderer.cleanUp();
+		loader.cleanUp();
+		if(multiplayer) {
+			c.close();
+		}
+		
+		DisplayManager.closeDisplay();
+	}
+	public static ArrayList<GuiTexture> getGuis() {
+		return guis;
+	}
+	public static Loader getLoader() {
+		return loader;
+	}
+	public static Player getPlayer() {
+		return player;
+	}
+	public static MasterRenderer getRenderer() {
+		return renderer;
+	}
+	public static void addObject(Entity e) {
+		objects.add(e);
+	}
+}

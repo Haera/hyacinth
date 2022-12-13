@@ -1,0 +1,17 @@
+# 
+# Wavefront material file
+# Created with Kaydara FBX
+# 
+
+newmtl t_leet_glass_tgamat
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 9.607843 9.607843 9.607843
+illum 2
+
+newmtl smdimportmtlmat
+map_Kd t_leet.png
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+illum 2

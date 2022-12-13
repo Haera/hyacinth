@@ -1,0 +1,158 @@
+package networking;
+
+import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.ArrayList;
+
+import game.Game;
+
+public class Client implements Serializable {
+	private InetAddress host;
+	private Socket socket;
+	private ObjectOutputStream dOut;
+	private ObjectInputStream dIn;
+	private ArrayList<ClientData> players;
+	private int PID;
+	private int port;
+	private float testInfo;
+	
+	public Client(InetAddress IP, int port) {
+		players = new ArrayList<ClientData>();
+		host = IP;
+		this.port = port;
+	}
+	
+	public void connect() {
+		try {
+			socket = new Socket(host, port);
+			System.out.println("opened socket, host: " + host + ", port: " + port);
+			dOut = new ObjectOutputStream(socket.getOutputStream());
+			dIn = new ObjectInputStream(socket.getInputStream());
+			System.out.println("initialized inputstream");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void main() {
+        try {
+          	//System.out.println("client->server: STR from client...");
+			//dOut.writeUTF("This is a string from client");
+	        //System.out.println("client: waiting...");
+        	sendData();
+        	recieveData();
+        	for(int i = 0; i < players.size(); i++) {
+        		System.out.println(players.get(i).position);
+        	}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		//sendData();
+		//recieveData();
+	}
+	
+	public void close() {
+		try {
+			//dIn.reset();
+			dOut.reset();
+			
+			dOut.close();
+			dIn.close();
+			
+			socket.close();
+			//socket.close();
+			System.out.println("Server closed.");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void sendData() { //sends coords
+//		try {
+//			if(Game.getPlayer().getID() == -1) { //If playerID is nonexistent
+//				dOut.writeByte(0); // Ask server politely for an ID
+//			}
+//			dOut.writeByte(1); // We have a playerID, transmission byte 1 prompt
+//			if(Game.getPlayer() != null) dOut.writeObject(Game.getPlayer()); // send our player object over
+//			dOut.flush(); // flush
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		try {
+			dOut.writeObject(Game.clientData);
+			dOut.reset();
+			dOut.flush();
+			//System.out.println("SENT: " + Game.clientData.position);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void recieveData() {
+		try {
+			players = (ArrayList<ClientData>) dIn.readObject();
+			dIn.skip(dIn.available());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+//	public void recieveData() {
+//		try {
+//			if(dIn.available() > 0) {
+//				byte transmissionByte = dIn.readByte();
+////				switch(transmissionByte) {
+////					case 1:
+////						testInfo = dIn.readFloat();
+////						System.out.println("Read Float: " + testInfo);
+////						break;
+////				}
+//				
+//				//System.out.println(dIn.available());
+//				
+////				players = (ArrayList<Player>)dIn.readObject();
+////				for(int i = 0; i < players.size(); i++) {
+////					if(players.get(i).getclID() != Game.getPlayer().getclID()) {
+////						Game.getRenderer().processEntity(new Entity(Game.texturedLuigi, new Vector3f(players.get(i).getPosition()), 0, 0, 0, 1));
+////						System.out.println(players.get(i).getPosition().x);
+////					} else if(Game.getPlayer().getID() == -1) {
+////						Game.getPlayer().setID(players.get(i).getID());
+////					}
+////					players.add(i, (Player) dIn.readObject());
+////					players.remove(i+1);
+////				}
+////				switch(transmissionByte) {
+////					case 0:
+////						players.remove(0);
+////						players.add((entities.Player) dIn.readObject());
+////						break;
+////					case 1:
+////						players.remove(1);
+////						players.add((entities.Player) dIn.readObject());
+////						break;
+////					case 2:
+////						players.remove(2);
+////						players.add((entities.Player) dIn.readObject());
+////						break;
+////				}
+////				dIn.skip(dIn.available());
+//				
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+
+	public int getPID() {
+		return PID;
+	}
+	
+	public float getTestInfo() {
+		return testInfo;
+	}
+}

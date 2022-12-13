@@ -1,0 +1,20 @@
+#version 140
+
+in vec2 position;
+
+out vec2 textureCoords;
+out float alpha;
+
+uniform mat4 projectionMatrix;
+uniform mat4 modelViewMatrix;
+uniform float inAlpha;
+
+void main(void){
+
+	textureCoords = position + vec2(0.5, 0.5);
+	textureCoords.y = 1.0 - textureCoords.y;
+	alpha = inAlpha;
+	
+	gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 0.0, 1.0);
+
+}
